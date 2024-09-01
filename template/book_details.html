@@ -1,0 +1,57 @@
+{% extends "base.html"}
+
+{% block title %}Book Detail{% endblock %}
+
+{% block content %}
+<div class="book-details">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for catagory, message in messages %}
+     <div class="alert aler-{{ category}}">{{ message}}</div>
+     {% endifor % }
+     {% endif %}
+     {% endwith %}
+
+     <h1>{{book.title}}</h1>
+     <p><strong>Author:</strong>{{book.author}}</p>
+     <p><strong><Publication Year:</strong> {{book.publication}}</p>
+     <p><strong>ISBN:</strong> {{ book.isbn}}</p>
+     <p><strong>Description:</strong> {{ book.description}}</p>
+     <a href="{{url_for('add_edit_book', book_id=book.id)}}" </p>
+     <form action="{{ur_for('delete_book', id=book)}}" method="POST">
+         <input type="submit" value="Delete Book" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete  this  book?');">
+
+     </form>
+     <h2>Reviews</h2>
+     {% if book.reviews %}
+       {% for review in book.reviews %}
+         <div class="review">
+            <p><strong>Rating :</strong>{{ review.rating}}/5</p>
+            <p><strong>Comment:</strong>{{ review.comment}}</p>
+            <p><em>By:{{ review.user.username}}</em></p>
+         </div>
+        {% endfor %}
+        {% else %}
+          <p> No reviews yet.</p>
+        {% endif %}
+
+    <h3> Add a Review</h3>
+
+    <form action="{{url_for('add_review', book_id=book.id)}}"  method="POST">
+        <label for="rating">Rating:</label>
+        <select name="rating" id="rating" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <label for="comment">Comment:</label>
+        <textarea name="comment" id="comment" required></textarea>mju8
+    </form>
+
+     
+
+
+</div>
+{% endlock %}

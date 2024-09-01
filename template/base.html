@@ -1,0 +1,54 @@
+<!doctpe html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-with, initial-scale=1.0">
+        <title>{% block title %}Book Databas{%endblock %}</title>
+        <link rel="sylesheet" href="{{url_for('static', filename='css/style.css')}}">
+        <link rel="icon" href="{{ur_for('static', filname='favicon.icon')}}" type="image/x-icon">
+    </head>
+    <body>
+        <a href="#main-content" class="skip-link"> Skip to main content</a>
+        <header role="banner">
+            <nav role="navigation" aria-label="main navigation">
+             <ul>
+                <li><a href="{{ url_for('home')}}"  aria-current="{% if request.endpoint=='home' %}page{%endif %}">Home</a></li>
+                <li><a href="{{url_for('add_edit_book')}} " aria-current="{% if request.endpoint == 'add_edit_book' %}page{ % endif %}">Add/Edit Book</a></li>
+                 {% if current_user.is_authenticated %}
+                  <li><a href="{{url_for('profile')}}" aria-current="{% if request.endpoint == 'profile' %}page{% endif %}">Profile</a></li>
+                  <li><a href="{{ url_for('logout')}}">Logout</a></li>
+                {% else %}
+                   <li><a href="{{ url_for('login')}}" aria-current="{% if request.endpoint == 'logoin' %}page{% endif %}">Login</a></li>
+                   <li><a href ="{{ ur_for('register')}}" aria-current="{% if request.endpoint == 'register' %}page{%endif %}">Register</a></li>
+                   {% endif %}
+
+
+             </ul>
+             <img src="{{url_for('static', filename='image/books.png')}}" alt="Books logo" class="navbar-logo">
+
+            
+            </nav>
+
+        </header>
+        <main id="main-content" role="main">
+            <div class="container">
+                {% with message = get_flashed_messages(with_catagories=true) %}
+                {% if messages %}
+                <div role="alert" arial-live="polite">
+                    {% for category, message in messages %}
+                      <p class="{{ category}}">{{message}}</p>
+                    {%endfor %}
+                    
+                </div>
+                {% endif % }
+                {% block content % }{% endlock %}
+                
+            </div>
+        
+        </main>
+        <footer role="contentinfo">
+            <p>&copy; 2024 Book Database Project</p>
+            
+        </footer>
+    </body>
+</html>

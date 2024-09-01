@@ -1,0 +1,59 @@
+{ % extends "base.html" %}
+{% block title %}User Profile{% endlock %}
+
+{% block content %}
+<div class="profile-container">
+    <h1>User Profile</h1>
+    <div class="profile-info">
+        <p><strong>Username: </strong> {{ user.username}}</p>
+        <p><strong>Email:</strong> {{ user.email}}</p>
+
+    </div>
+    <h2> My Books</h2>
+    {% if user.books %}
+    <ul class="book-list">
+    {% for book in user.books %}
+    <li>
+       <a href="{{url_for('book_detail', id=book.id)}}" > {{book.title}}</a> by {{book.author}}
+
+    </li>
+    {% endfor %}
+
+    </ul>
+    {% else %}
+    <p> you haven't added any books yet.</p>
+    {% endif %}
+
+    <h2> My Wishlist</h2>
+    {% if user.wishlist %}
+     <ul class="wishlist">
+        {% for book in user.wishlist %}
+        <li>
+            <a href="{{ url_for('book_detail', id=book)}}">{{ book.title}}</a> by {{ book.author}}
+
+        </li>
+        {% endfor %}
+     </ul>
+          <p>Your wishlist is empty.</p>
+        {% endif %}
+
+        <h2>My Review</h2>
+        {% if user.review %}
+           <ul class="review-list">
+            {% for review in user.reviews  %}
+            <li>
+                < a href="{{ur-for('book_detail', id=review.book.id)}}">{{ review.book.title}}</a>:
+                {{ review.rating}}/5 -{{ review.comment}}
+
+            </li>
+            {% endfor %}
+
+
+           </ul>
+           {% else %}
+              <p> You haven't written any reviews  yet.</p>
+            {% endif %}
+
+     
+</div>
+{% endblock %}

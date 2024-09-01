@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Book Database</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    </head>
+    <body>
+        <div class="container">
+            <h1> Login</h1>
+            {% with message= get_flashed_messages(with_catagories=true) %}
+              {%  if messages %}
+                {% for cateegory, message in message %}
+                  <div class="alert alert-{{ catagory}}">{{ message}}</div>
+                  {% endfor %}
+                {% endif %}
+            <form method="POST" action="{{url_for('login')}}">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            
+            <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+               
+        </div>
+    </body>
+
+</html>

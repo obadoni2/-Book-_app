@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{ % block title %}Book Database{% endblock %}
+
+{ % block content %}
+
+<h1> Book Database</h1>
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="Search books...">
+    <button id="search-button">Search</button>
+
+</div>
+<section id="book-list">
+    <h2>Book List</h2>
+    <div id="book-grid">
+        <!---Books will be dynamically added here-->
+    </div>
+
+</section>
+<section id ="add-book">
+    <h2> Add New Book</h2>
+    <form id="add-book-form">
+        <input type="text" id="title" name="title" placeholder="Title" required>
+        <input type="text" id="author" name="author" placeholder="Author" required>
+        <input type="number" id="publication-year" name="publication_year" placeholder="Publication Year">
+        <input type="text" id="isbn" name="isbn" placeholder="ISBN">
+        <textarea id="description" name="description" placeholder="Description"></textarea>
+        <input type="url" id="cover-url" name="cover_url" placeholder="Cover Image URL">
+
+        <button type="submit">Add Book</button>
+    </form>
+</section>
+{% endblock %}

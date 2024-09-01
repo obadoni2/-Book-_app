@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}{% if book %} Edit Book{% else % } Add New Book{% endif % }{% endblock %}
+
+{% block content %}
+
+<h1> {% if book %}Edit Book{% else % } Add New Books{% endif % }</h1>
+<div class="form-group">
+ <form method="POST" action=""{{ url_for('add_edit_book', id=book.id) if book else url_for('add_edit_book')}}>
+    <div>
+   <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" value="{{book.title if book else ''}}" required>
+    </div>
+   </div>
+   
+    #second set of div
+    <div>
+     <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" id="author" name="author" value="{{boo.author if  book else ''}}" required>
+        
+
+     </div>
+     </div>
+      <div>
+        <div class="form-group">
+            <label for="publication_year">Publication Year</label>
+            <input type="number" id="publication_year" name="publication_year" value="{{book.publication_year if book else ''}}">
+
+        </div>
+      </div>
+      <div>
+        <div class="form-group">
+        <label for="isbn">ISBN:</label>
+        <input type="text" id="isbn" name="isbn" value="{{book.isbn if book else ''}}">
+
+        </div>
+      </div>
+      <div>
+        <div class="form-group">
+            <label for="description" name="description"></label>
+            <textarea id="description">{{book.description if book else ''}}</textarea>
+
+        </div>
+      </div>
+
+      <button type="submit">{% if book % }Update Book{% else %} Add Book{% endif %}</button>
+      
+
+     
+
+    </div>
+</form>
