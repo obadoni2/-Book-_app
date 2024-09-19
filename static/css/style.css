@@ -1,12 +1,13 @@
 /* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: #1a1a2e;
     color: #e0e0e0;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 .container {
@@ -17,87 +18,21 @@ body {
     overflow: hidden;
 }
 
-/* Form Styles */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-label {
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: none;
-    background-color: #2a2a4a;
-    color: #fff;
-    font-size: 1rem;
-}
-
-input::placeholder,
-textarea::placeholder {
-    color: #a0a0a0;
-}
-
-input:focus,
-textarea:focus {
-    outline: 2px solid #f8a5c2;
-}
-
-/* Button Styles */
-.btn-primary {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #e91e63;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1rem;
-}
-
-.btn-primary:hover {
-    background-color: #d81b60;
-}
-
-.btn-primary:focus {
-    outline: none;
-    box-shadow: 0 0 10px #e91e63;
-}
-
-.btn-primary:disabled {
-    background-color: #b0b0b0;
-    cursor: not-allowed;
-}
-
-.form-group {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
 /* Header Styles */
 header {
     background: #16213e;
-    color: #f8a5c2;
+    color: #e94560;
     padding: 20px 0;
     border-bottom: 3px solid #e94560;
     text-align: center;
+    animation: fadeIn 1s ease-in-out;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    animation: slideIn 1s ease-out;
 }
 
 /* Navigation Styles */
@@ -118,18 +53,96 @@ nav a {
     text-decoration: none;
     font-size: 1.1rem;
     padding: 5px 10px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 nav a:hover,
 nav a:focus {
     color: #e94560;
     outline: 2px solid #e94560;
+    transform: scale(1.1);
 }
 
-.navbar-logo {
-    width: 100px;
-    height: 100px;
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #2a2a4a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-in-out;
+    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(0);
+}
+
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #f8a5c2;
+    animation: fadeIn 2s ease-in-out;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #f8a5c2;
+    background-color: #1a1a2e;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #a0a0a0;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #e91e63;
+    box-shadow: 0 0 8px rgba(233, 30, 99, 0.3);
+    outline: none;
+}
+
+/* Button Styles */
+.btn-primary {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    background-color: #e91e63;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(233, 30, 99, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #d81b60;
+    transform: scale(1.05);
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 12px #e91e63;
+}
+
+.btn-primary:disabled {
+    background-color: #b0b0b0;
+    cursor: not-allowed;
 }
 
 /* Main Content Styles */
@@ -142,48 +155,53 @@ main {
     background: #0f3460;
     padding: 20px;
     margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(248,165,194,0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 2s ease-in-out;
 }
 
 #book-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
 }
 
 .book-item {
     background: #16213e;
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 2s ease-in-out;
 }
 
 .book-item:hover,
 .book-item:focus-within {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(248,165,194,0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(248, 165, 194, 0.3);
 }
 
 /* Add Book Form Styles */
 #add-book {
     background: #0f3460;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(248,165,194,0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 2s ease-in-out;
 }
 
 #add-book-form input,
 #add-book-form textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #533483;
-    border-radius: 4px;
-    background-color: #16213e;
-    color: #e0e0e0;
+    border-radius: 6px;
+    background-color: #1a1a2e;
+    color: #fff;
     font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 #add-book-form button {
@@ -192,15 +210,16 @@ main {
     background: #533483;
     color: #ffffff;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     font-size: 1rem;
 }
 
 #add-book-form button:hover,
 #add-book-form button:focus {
     background: #e94560;
+    transform: scale(1.05);
     outline: 2px solid #f8a5c2;
 }
 
@@ -216,7 +235,7 @@ footer {
 /* Responsive Design */
 @media (max-width: 1024px) {
     #book-grid {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 }
 
@@ -245,7 +264,7 @@ footer {
 
 @media (max-width: 480px) {
     header h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     #book-grid {
@@ -270,11 +289,6 @@ input:focus,
 textarea:focus {
     outline: 2px solid #f8a5c2;
     outline-offset: 2px;
-}
-
-input::placeholder,
-textarea::placeholder {
-    color: #a0a0a0;
 }
 
 /* High Contrast Mode */
@@ -323,3 +337,5 @@ textarea::placeholder {
 .skip-link:focus {
     top: 0;
 }
+
+/* Animations */

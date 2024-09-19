@@ -31,4 +31,3 @@ Frontend: HTML, CSS, JavaScript
 Backend: Python with Flask
 Database: SQLite
 ORM: SQLAlchemy
-Deployment: PythonAnywhere
