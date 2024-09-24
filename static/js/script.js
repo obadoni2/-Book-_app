@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
     fetchBooks();
-    document.getElementById('add-book-form'). addEventListenener('submit', addBook);
+    document.getElementById('add-book-form'). addEventListener('submit', addBook);
     document.getElementById('search-input'). addEventListener('input', debounce(hanleSearch, 300));
     document.getElementById('search-button').addEventListener('click', handleSearch);
 
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function(){
             'Content-Type': 'application/json',
 
         },
-        body: JSon.stingify(bookData),
+        body: JSON.stingify(bookData),
 
        })
        .then(response => response.json())
@@ -67,6 +67,19 @@ document.addEventListener('DOMContentLoaded', function(){
 
  }
  function showBookDetails(id) {
+
+
+
+
+
+
+
+
+
+
+
+
+
     window.location.href =`/book/${id}`;
 
  }

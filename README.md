@@ -1,4 +1,12 @@
-fullstack-books
+
+
+ Live page  https://emmanueltech.pythonanywhere.com/
+ Youtube link = https://youtu.be/eL85OPk-Gf4?si=antDN_ACxV3KaKSH
+ 
+ FULL-STACK  BOOKSTOR WEB APP
+
+
+
 Overview
 This project is a full-stack web application for managing a database of books. It includes a front-end interface for users to view, add, edit, and delete books, and a back-end with a RESTful API to interact with the SQLite database.
 
@@ -26,8 +34,17 @@ Wishlist and favorites
 Responsive design
 User authentication and profile management
 Accessibility features
+
 Tech Stack
 Frontend: HTML, CSS, JavaScript
 Backend: Python with Flask
 Database: SQLite
 ORM: SQLAlchemy
+
+License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+ YOU  are free to use it
+
+
+ 
+
